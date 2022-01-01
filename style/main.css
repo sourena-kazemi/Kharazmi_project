@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family:vazir,sans-serif;
 }
 html{
 	font-size: 100%;
@@ -10,7 +11,6 @@ nav{
 	background-color: rgba(75, 67, 67, 0.548);
 	display: flex;
 	width: 100%;
-	height: 2rem;
 	justify-content: space-between;
 }
 
@@ -18,25 +18,47 @@ nav{
 	display: flex;
 	justify-content:center ;
 	margin: 8px;
+	font-weight: bold;
 }
 
 .drop_down {
-	width: 7rem;
-	height: 11rem;
+	width: 150px;
+	height: 200px;
 	background-color: rgba(0, 0, 0, 0.678);
+	transition: all .5s ;
+	position: absolute ;
+	top: 2rem;
+	right:150px;
 	display: none;
 }
-.navbar_options_btn:hover > .drop_down{
-	display: block;
-	position: absolute ;
-	top: 25px;
+.navbar_options_btn{
+	cursor: pointer;
 }
-
-
 nav .buttons_box div {
-	margin: 0 60px;
+	margin: auto 20px;
 }
 
 .user_info_box {
 	margin: 8px;
+	display: flex;
+	font-weight: bold;
+}
+.user_info_box div{
+	margin:auto 10px;
+}
+.user_logo{
+	background-color: #fff;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.navbar_icon{
+	background-color: #fff;
+	width: 40px;
+	height: 40px;
+}
+.header{
+	display: flex;
+	justify-content:space-between;
+	margin:50px;
 }
