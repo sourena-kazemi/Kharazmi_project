@@ -25,6 +25,7 @@
 <!--	<meta name="twitter:image" content=""/>-->
 <!--	<meta name="twitter:creator" content=""/>-->
 	<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="style/main.css">
 
 	<title>Moalem Yar</title>
@@ -37,7 +38,8 @@
 		<div class="navbar_options_btn">
 			امکانات<div class="drop_down"></div>
 		</div>
-		<div class="navbar_developers_info_btn">درباره ما</div>
+		<div class="navbar_developers_info_container">
+			<a href="#about" class="navbar_developers_info_btn">درباره ما</a></div>
 
 
 
@@ -59,14 +61,90 @@
 </header>
 <main class="main">
 	<section class="shortcuts_btn_container">
-		<div class="shortcut_btn my_schedule_btn ">برنامه های من</div>
-		<div class="shortcut_btn my_worktable_btn">میز کار من</div>
-		<div class="shortcut_btn today_program_btn">برنامه امروز</div>
+		<div class="shortcut_btn my_schedule_btn animate__animated animate__zoomIn">برنامه های من</div>
+		<div class="shortcut_btn my_worktable_btn animate__animated animate__zoomIn">میز کار من</div>
+		<div class="shortcut_btn today_program_btn animate__animated animate__zoomIn">برنامه امروز</div>
+	</section>
+	<section class="description_container">
+		<div class="description_line first_description_line">
+			<div class="description animate__animated wow animate__fadeIn">
+				<h2 class="description_title">Lorem ipsum dolor.</h2>
+				<p class="description_text">Lorem ipsum dolor sit amet.</p>
+			</div>
+			<img src="assets/images/new.svg" alt="description image" class="line_image animate__animated wow animate__jackInTheBox">
+		</div>
+		<div class="description_line second_description_line">
+			<div class="description animate__animated wow animate__fadeIn">
+				<h2 class="description_title">Lorem ipsum dolor.</h2>
+				<p class="description_text">Lorem ipsum dolor sit amet.</p>
+			</div>
+			<img src="assets/images/easy.svg" alt="description image" class="line_image animate__animated wow animate__jackInTheBox">
+		</div>
+	</section>
+	<section class="about_container" id="about">
+		<div class="about_container_head">
+			<div class="about_part_separator_line first_separator_line"></div>
+			<h3 class="about_title">درباره ما</h3>
+			<div class="about_part_separator_line second_separator_line"></div>
+		</div>
+
+
+		<div class="about_project_container">
+			<div class="about_project_dropdown_container">
+				<div class="dropdown_head">
+					<h4 class="about_dropdown_title">درباره سایت</h4>
+					<img src="assets/images/icons8-down-24.png" alt="dropdown icon" class="about_dropdown_icon first_dropdown_icon" onclick="firstDropdownClick(this)">
+				</div>
+
+				<div class="about_dropdown first_dropdown">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. A delectus dolore fuga omnis quam quis.
+				</div>
+			</div>
+			<div class="about_project_dropdown_container">
+				<div class="dropdown_head">
+					<h4 class="about_dropdown_title">اهداف ما</h4>
+					<img src="assets/images/icons8-down-24.png" alt="dropdown icon" class="about_dropdown_icon second_dropdown_icon" onclick="secondDropdownClick(this)">
+				</div>
+
+				<div class="about_dropdown second_dropdown">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. A delectus dolore fuga omnis quam quis.
+				</div>
+			</div>
+		</div>
+		<div class="about_developer_container">
+			<div class="about_container_head">
+				<div class="about_part_separator_line first_separator_line"></div>
+				<h3 class="about_title">طراحان</h3>
+				<div class="about_part_separator_line second_separator_line"></div>
+			</div>
+			<div class="developers_info_container">
+				<div class="developer_info_box">
+					<img src="" alt="developer image" class="developer_image">
+					<div class="developer_info_box">
+						<p class="developer_name"></p>
+						<p class="developer_skills"></p>
+					</div>
+				</div>
+			</div>
+			<div class="developers_info_container">
+				<div class="developer_info_box">
+					<img src="" alt="developer image" class="developer_image">
+					<div class="developer_info_box">
+						<p class="developer_name"></p>
+						<p class="developer_skills"></p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </main>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/wow.js"></script>
+<script>
+	new WOW().init();
+</script>
 <script src="./js/main.js"></script>
 </html>
 

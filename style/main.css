@@ -6,11 +6,14 @@
 }
 html{
 	font-size: 100%;
+	scroll-behavior: smooth;
+
 }
 body{
 	display:flex;
 	flex-direction: column;
 	align-items: center;
+	overflow-x: hidden;
 }
 nav{
 	background-color: rgb(151, 151, 151);
@@ -66,6 +69,10 @@ nav .buttons_box div {
 	width: 40px;
 	height: 40px;
 }
+.navbar_developers_info_btn{
+	text-decoration: none;
+	color: #000;
+}
 .header{
 	display: flex;
 	justify-content:space-between;
@@ -84,6 +91,9 @@ nav .buttons_box div {
 .header_title_container{
 	display:flex;
 	flex-direction: column;
+}
+.main{
+	width: 100%;
 }
 .shortcuts_btn_container{
 	display:flex;
@@ -112,4 +122,78 @@ nav .buttons_box div {
 }
 .today_program_btn{
 	background-color: #ffe600;
+}
+.description_line{
+	margin-top:5rem;
+	display: flex;
+	justify-content:space-evenly;
+	align-items: center;
+	text-align:center;
+}
+.line_image{
+	width: 30%;
+}
+.description_title{
+	font-size:2rem;
+}
+.first_description_line{
+	flex-direction: row-reverse;
+}
+.about_container{
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+.about_title{
+	font-size:1.5rem;
+	display: flex;
+	align-self: center;
+	position: relative;
+}
+.about_container_head{
+	display: flex;
+	justify-content:center;
+	margin-top: 4rem;
+}
+.about_part_separator_line{
+	width:40%;
+	height:3px;
+	border-radius:15px;
+	border:solid #1fdae0 2px;
+	background-color: #fff;
+	position: absolute;
+	margin-top: 1rem;
+}
+.first_separator_line{
+	right:2%;
+}
+.second_separator_line{
+	left:2%;
+}
+.about_project_dropdown_container{
+	display:flex;
+	flex-direction:column;
+	margin:2rem 3rem 0 0;
+}
+.dropdown_head{
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	margin-top:1rem;
+}
+.about_dropdown_title{
+	font-size:1.1rem;
+}
+.about_dropdown_icon{
+	margin-right:1rem;
+	width:20px;
+	height:25px;
+	transition: all .3s;
+}
+.about_dropdown{
+	margin-top: 1rem;
+}
+.about_dropdown{
+	display:none;
 }
