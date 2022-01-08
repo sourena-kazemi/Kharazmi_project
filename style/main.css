@@ -197,3 +197,48 @@ nav .buttons_box div {
 .about_dropdown{
 	display:none;
 }
+.developers_info_container{
+	display:flex;
+	justify-content:space-evenly;
+	margin-top: 4rem;
+}
+.developer_image{
+	background-color: rgb(151, 151, 151);
+	width:13rem;
+	height:13rem;
+	border-radius:50%;
+	transition: all .3s;
+}
+.developer_image:hover{
+	transform: scale(1.2);
+}
+.developer_info_box{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	margin-top: 1rem;
+	font-weight: bold;
+}
+.developer_info_box p{
+	margin-top: .5rem;
+}
+.footer{
+	margin-top: 2rem;
+	background-color: rgb(151, 151, 151);
+	height:auto;
+	width: 100%;
+}
+.footer{
+	display:flex;
+	justify-content:space-evenly;
+}
+.column{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+}
+.footer_link{
+	color:#fff;
+	text-decoration: none;
+	margin-top: .5rem;
+}
