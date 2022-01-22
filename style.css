@@ -1,0 +1,187 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:vazir,sans-serif;
+}
+html{
+	font-size: 100%;
+}
+body{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+nav{
+	background-color: rgb(151, 151, 151);
+	display: flex;
+	width: 90%;
+	justify-content: space-between;
+	border-radius:15px;
+	margin-top:1rem;
+	padding: .3rem;
+}
+
+.buttons_box {
+	display: flex;
+	justify-content:center ;
+	margin: 8px;
+	font-weight: bold;
+}
+
+.drop_down {
+	width: 200px;
+	height: 250px;
+	background-color: rgba(0, 0, 0, 0.678);
+	transition: all .5s ;
+	position: absolute ;
+	top: 6rem;
+	right:17%;
+	border-radius:15px;
+	display: none;
+}
+.navbar_options_btn{
+	cursor: pointer;
+}
+nav .buttons_box div {
+	margin: auto 20px;
+}
+
+.user_info_box {
+	margin: 8px;
+	display: flex;
+	font-weight: bold;
+}
+.user_info_box div{
+	margin:auto 10px;
+}
+.user_logo{
+	background-color: #fff;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.navbar_icon{
+	background-color: #fff;
+	width: 40px;
+	height: 40px;
+}
+
+h1{
+	display: flex;
+	margin: 3rem 3rem 3rem 3rem;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+
+
+.school_planning_Columns {
+	margin: 3rem;
+	display: grid;
+	grid-template-columns: auto  auto auto;
+	grid-gap: 6rem ;
+}
+
+.box_Exam_schdule{
+	display: flex;
+	background-color: rgb(211, 216, 214);
+	flex-direction: column;
+	padding: 3.6rem;
+	border: gray solid 3px;
+	border-radius: 10px;
+}
+
+.box_Exam_schdule div{
+	margin: .5rem;
+}
+
+.box_Exam_schdule label , .box_Exam_schdule input {
+	margin: 10px;
+}
+
+
+.plus_button_schdule{
+	padding: 5px;
+	color: #fff;
+	border-radius: 5px;
+	border: #fff solid 3px;
+	background-color: rgb(17, 17, 172);
+	font-size: 1.1rem;
+}
+
+.box_present_week_schdule {
+	display: flex;
+	background-color: rgb(211, 216, 214);
+	flex-direction: column;
+	padding: 3.6rem;
+	border: gray solid 3px;
+	border-radius: 10px;
+}
+.box_present_week_schdule div {
+	margin: .5rem;
+}
+
+.box_present_week_schdule label ,.box_present_week_schdule input {
+	margin: 10px;
+}
+
+.plus_button_present_week{
+	padding: 5px;
+	color: #fff;
+	border-radius: 5px;
+	border: #fff solid 3px;
+	background-color: rgb(17, 17, 172);
+	font-size: 1.1rem;
+}
+
+.box_last_week_schdule {
+	display: flex;
+	background-color: rgb(211, 216, 214);
+	flex-direction: column;
+	padding: 3.6rem;
+	border: gray solid 3px;
+	border-radius: 10px;
+}
+
+.box_last_week_schdule div  {
+	margin: .5rem;
+	display: flex;
+}
+
+.box_last_week_schdule label ,.box_last_week_schdule input {
+	margin: 10px;
+}
+
+.plus_button_last_week{
+	padding: 5px;
+	color: #fff;
+	border-radius: 5px;
+	border: #fff solid 3px;
+	background-color: rgb(17, 17, 172);
+	font-size: 1.1rem;
+}
+
+.footer{
+	margin-top: 100%;
+	background-color: rgb(151, 151, 151);
+	height:auto;
+	width: 100%;
+}
+.footer{
+	display:flex;
+	justify-content:space-evenly;
+}
+.column{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+}
+.footer_link{
+	color:#fff;
+	text-decoration: none;
+	margin-top: .5rem;
+}
+
+
+
