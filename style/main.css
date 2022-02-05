@@ -24,24 +24,25 @@ nav{
 	margin-top:1rem;
 	padding: .3rem;
 }
-
 .buttons_box {
 	display: flex;
 	justify-content:center ;
 	margin: 8px;
 	font-weight: bold;
 }
-
 .drop_down {
 	width: 200px;
-	height: 250px;
-	background-color: rgba(0, 0, 0, 0.678);
+	height: auto;
+	background-color: #979797FF;
+	border:1px #4e4e4e solid;
 	transition: all .5s ;
 	position: absolute ;
 	top: 6rem;
 	right:17%;
 	border-radius:15px;
 	display: none;
+	z-index:2;
+	padding: 1rem .5rem;
 }
 .navbar_options_btn{
 	cursor: pointer;
@@ -73,6 +74,10 @@ nav .buttons_box div {
 	text-decoration: none;
 	color: #000;
 }
+.navbar_homepage_btn{
+	text-decoration: none;
+	color: #000;
+}
 .header{
 	display: flex;
 	justify-content:space-between;
@@ -100,13 +105,16 @@ nav .buttons_box div {
 	justify-content:center;
 }
 .shortcut_btn{
-	color: #fff;
-	font-size: 1.3rem;
-	font-weight: bold;
 	border-radius:15px;
 	padding:12px 30px;
 	margin:0 2rem;
 	transition: all .3s;
+}
+.shortcut_btn > *{
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.3rem;
+	font-weight: bold;
 }
 .shortcut_btn:hover{
 	transform:scale(1.2);
@@ -224,13 +232,12 @@ nav .buttons_box div {
 }
 .footer{
 	margin-top: 2rem;
-	background-color: rgb(151, 151, 151);
+	background-color: #979797FF;
 	height:auto;
 	width: 100%;
-}
-.footer{
 	display:flex;
 	justify-content:space-evenly;
+	padding-bottom: 1rem;
 }
 .column{
 	display:flex;
