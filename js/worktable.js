@@ -4,37 +4,30 @@ let userData ={
 			day:"saturday",
 			index:0,
 			lessons:[],
-			exams:[]
 		},{
 			day:"sunday",
 			index:1,
 			lessons:[],
-			exams:[]
 		},{
 			day:"monday",
 			index:2,
 			lessons:[],
-			exams:[]
 		},{
 			day:"tuesday",
 			index:3,
 			lessons:[],
-			exams:[]
 		},{
 			day:"wednesday",
 			index:4,
 			lessons:[],
-			exams:[]
 		},{
 			day:"thursday",
 			index:5,
 			lessons:[],
-			exams:[]
 		},{
 			day:"friday",
 			index:6,
 			lessons:[],
-			exams:[]
 		}
 	],
 	schools:[],
@@ -50,6 +43,7 @@ $(document).ready(function(){ //jquery
 	renderTodayLessonsList(userData.days);
 	renderSchoolNamesList(userData.schools);
 	renderSchoolScheduleList(userData.schools);
+	renderWeekExams();
 	$(".schedule_add_button,.nav_adding_schedule_btn,.footer_adding_schedule_btn,.schedule_adding_box").on("click", function(){
 		isScheduleAddingBoxShown=true;
 		$(".schedule_adding_box").fadeIn();
@@ -88,58 +82,61 @@ function openAddLessonsBox(element){
 		$(".day_lessons_adding_box").fadeIn();
 	});
 }
-function addLesson(e){
+function getLessonInfo(e){
 	let lessonNameInput = document.querySelector(".lesson_name_input");
 	let lessonStartTimeInput = document.querySelector(".lesson_time_start_input");
 	let lessonEndTimeInput = document.querySelector(".lesson_time_end_input");
 	let addLessonBtn = document.querySelector(".add_lesson_btn");
 
 	if(lessonNameInput.value!== "" && lessonStartTimeInput.value!== "" && lessonEndTimeInput.value!== ""){
-		if(userData.days[dayIndex].lessons.length>0){
-		userData.days[dayIndex].lessons.map(lesson => {			//prevent user from add two same lesson.
-			if(lesson.lesson !== lessonNameInput.value.trim() || lesson.timeStart !== lessonStartTimeInput.value || lesson.timeEnd !== lessonEndTimeInput.value){
-				userData.days[dayIndex].lessons.push(
-					{
-						lesson: lessonNameInput.value.trim(),
-						timeStart: lessonStartTimeInput.value,
-						timeEnd: lessonEndTimeInput.value,
-						school: userData.chosenSchool,
-						checked: ""
-					}
-				);
-				lessonNameInput.value = lessonStartTimeInput.value = lessonEndTimeInput.value = "";
-				renderTodayLessonsList(userData.days);
-
-				$(".day_lessons_adding_box").fadeOut();//hiding the box
-			}else{
-				addLessonBtn.classList.add("animate__shakeX");
-				setTimeout(function(){
-					addLessonBtn.classList.remove("animate__shakeX");
-				},1000);
+		let i = 0;
+		while(i<=userData.days[dayIndex].lessons.length){
+			let lessonsList = userData.days[dayIndex].lessons;
+			if(userData.days[dayIndex].lessons.length===0){
+				addLesson(lessonNameInput.value.trim(),lessonStartTimeInput.value,lessonEndTimeInput.value);
+				break;
 			}
-		});}else{
-			console.log("hello wol");
-			userData.days[dayIndex].lessons.push(
-				{
-					lesson: lessonNameInput.value.trim(),
-					timeStart: lessonStartTimeInput.value,
-					timeEnd: lessonEndTimeInput.value,
-					school: userData.chosenSchool,
-					checked: ""
+			if(lessonsList[i].lesson === lessonNameInput.value.trim() && lessonsList[i].timeStart === lessonStartTimeInput.value && lessonsList[i].timeEnd === lessonEndTimeInput.value){
+						addLessonBtn.classList.add("animate__shakeX");
+						setTimeout(function(){
+							addLessonBtn.classList.remove("animate__shakeX");
+						},1000);
+						break;
+			}else{
+				if(i===userData.days[dayIndex].lessons.length-1){
+
+					addLesson(lessonNameInput.value.trim(),lessonStartTimeInput.value,lessonEndTimeInput.value);
+					break;
+				}else{
+					i++;
 				}
-			);
-			lessonNameInput.value = lessonStartTimeInput.value = lessonEndTimeInput.value = "";
-			renderTodayLessonsList(userData.days);
-
-			$(".day_lessons_adding_box").fadeOut();//hiding the box
+			}
 		}
-
 	}else{
 		addLessonBtn.classList.add("animate__shakeX");
 		setTimeout(function(){
 			addLessonBtn.classList.remove("animate__shakeX");
 		},1000);
 	}
+}
+function addLesson(name,timeStart,timeEnd){
+	let lessonNameInput = document.querySelector(".lesson_name_input");
+	let lessonStartTimeInput = document.querySelector(".lesson_time_start_input");
+	let lessonEndTimeInput = document.querySelector(".lesson_time_end_input");
+	userData.days[dayIndex].lessons.push(
+		{
+			lesson: name,
+			timeStart: timeStart,
+			timeEnd: timeEnd,
+			school: userData.chosenSchool,
+			checked: "",
+			exam:false
+		}
+	);
+	lessonNameInput.value = lessonStartTimeInput.value = lessonEndTimeInput.value = "";
+	renderTodayLessonsList(userData.days);
+
+	$(".day_lessons_adding_box").fadeOut();//hiding the box
 }
 function addSchool(){
 	let schoolNameInput = document.querySelector(".school_name_input");
@@ -182,6 +179,7 @@ function changeSelectedSchool(element){
 		$(".popout_box").fadeOut();
 	}
 	renderTodayLessonsList(userData.days);
+	renderWeekExams();
 }
 function renderTodayLessonsList(element){
 	let todayIndex = getTodayIndex();
@@ -253,8 +251,44 @@ function changeScheduleSelectedDay(input){
 }
 function addLessonAsExam(element){
 	let parentElementOfBtn = element.parentElement;
+	let dayName = document.querySelector(".day_name_title").innerHTML;
+	let schoolName = document.querySelector(".schedule_school_name_title").innerHTML;
+	let scheduleDayIndex = persianWeekDays.indexOf(dayName);
 	let info = parentElementOfBtn.firstChild.innerHTML.split(" ");
-	console.log(info.split(" "));
+	let lessonsList = userData.days[scheduleDayIndex].lessons;
+	let i = 0;
+	while(i < lessonsList.length){
+		if(lessonsList[i].lesson === info[0] && lessonsList[i].timeStart === info[1] && lessonsList[i].timeEnd === info[3]){
+			userData.days[scheduleDayIndex].lessons[i].exam = !userData.days[scheduleDayIndex].lessons[i].exam;
+			renderWeekExams();
+			break;
+		}else{
+			i++;
+		}
+	}
+}
+function renderWeekExams(){
+	let examsList = document.querySelector(".week_exams_list");
+	let exams = [];
+	userData.days.map((day,index) => {
+		day.lessons.map(lesson => {
+			if(lesson.exam){
+				exams.push({
+					name:lesson.lesson,
+					timeStart:lesson.timeStart,
+					timeEnd:lesson.timeEnd,
+					schoolName:((lesson.school==="all") ? "تمام مدارس" : lesson.school),
+					day:persianWeekDays[index]
+				})
+			}
+		})
+	})
+	examsList.innerHTML="";
+	exams.map(exam => {
+		if(exam.schoolName==="تمام مدارس" || exam.schoolName===userData.chosenSchool) {
+			examsList.innerHTML += `<p class=\"exam_list_item\">${exam.name} ${exam.schoolName} ${exam.timeStart} _ ${exam.timeEnd} ${exam.day}</p>\n`;
+		}
+	})
 }
 function getTodayIndex(){
 	//this function will return the index of day that you are in,We couldn't just use getDate() method because first day in my country is Saturday not Sunday!

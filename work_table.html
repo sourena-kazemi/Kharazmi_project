@@ -42,14 +42,10 @@
             </div>
             </div>
             <div class="navbar_developers_info_btn">درباره ما</div>
-    
-    
-    
         </section>
         <section class="user_info_box">
-            <div class="sign_up_btn">ثبت نام</div>
+            <div class="guide_btn">راهنما</div>
             <div class="sign_in_btn">ورود</div>
-            <div class="user_logo"></div>
         </section>
     </nav>
     <main class="main">
@@ -69,31 +65,20 @@
         <div class="school_planning_Columns">
             <div class="exam_schedule_box schedule">
                 <h3 class="schedule_title">امتحانات هفته</h3>
-
-<!--                <label class="schedule_item" for="checkbox1_exam">-->
-<!--                    <input type="checkbox" name="checkbox" id="checkbox1_exam" >-->
-<!--                    lorem-->
-<!--                </label>-->
-
+                <div class="week_exams_list"></div>
                 <button class="schedule_add_button exam_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
             </div>
             <div class="present_week_schedule_box schedule">
                 <h3 class="schedule_title">برنامه این هفته</h3>
-                    <div class="schools_schedules_list">
-
-                    </div>
-
+                    <div class="schools_schedules_list"></div>
                 <button class="schedule_add_button present_week_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
             </div>
             <div class="today_schedule_box schedule">
                 <h3 class="schedule_title">برنامه امروز</h3>
-                <div class="today_lessons_list">
-
-                </div>
+                <div class="today_lessons_list"></div>
                 <button class="schedule_add_button today_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
             </div>
         </div>
-
         <div class="schedule_adding_box">
             <div class="schools_dropdown_box schedule_adding_schools_dropdown">
                 <h3 class="adding_box_dropdown_title">تمام مدارس</h3>
@@ -141,11 +126,10 @@
                 <label for="lesson_time_end_input">زمان پایان
                     <input type="time" class="lesson_time_end_input" id="lesson_time_end_input" required>
                 </label>
-                <button class="add_lesson_btn animate__animated" onclick="addLesson()">افزودن</button>
+                <button class="add_lesson_btn animate__animated" onclick="getLessonInfo()">افزودن</button>
             </div>
         </div>
         <div class="popout_box"><!-- This element will fade in along with other elements so It will prevent user from clicking outside the opened element. --></div>
-
         <div class="about_today_box">
             <h3 class="about_today_title">
                 درباره امروز
@@ -165,10 +149,7 @@
                 <div class="day_lessons_box"></div>
             </div>
         </div>
-
     </main>
-
-
     <footer class="footer">
         <div class="column footer_about_column">
             <a href="index.html#about" class="footer_link">درباره ما</a>
@@ -189,7 +170,6 @@
 
     </footer>
 </body>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/wow.js"></script>
 <script>
@@ -197,5 +177,4 @@
 </script>
 <script src="./js/main.js"></script>
 <script src="./js/worktable.js"></script>
-
 </html>

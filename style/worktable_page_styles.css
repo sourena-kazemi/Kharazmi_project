@@ -122,6 +122,11 @@ body{
 	font-size:1.1rem;
 	text-align: center;
 }
+.exam_list_item{
+	margin-bottom: .5rem;
+	font-size:1.1rem;
+	text-align: center;
+}
 .schedule_item > input{
 	transform:scale(1.2);
 	margin:0 .2rem;
