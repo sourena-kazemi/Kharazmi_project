@@ -17,39 +17,46 @@
 <!--	<meta property="og:locale" content="">-->
 <!--	<meta property="og:image" content="">-->
 <!--	<meta property="og:image:type" content=""/>-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="style/main.css">
+	<link rel="stylesheet" href="style/responsive.css">
 
 	<title>Moalem Yar</title>
 </head>
 <body>
 <nav class="navbar">
-	<section class="buttons_box">
-		<div class="navbar_icon"></div>
-		<div class="navbar_homepage_btn">
-			<a href="#" class="navbar_homepage_btn">صفحه اصلی</a>
-		</div>
-		<div class="navbar_options_btn">
-			امکانات<div class="drop_down">
-			<div class="column footer_options_column">
-				<a href="work_table.html" class="footer_link">میزکار</a>
-				<a href="work_table.html" class="footer_link">افزودن برنامه</a>
-				<a href="work_table.html" class="footer_link">برنامه امروز</a>
-				<a href="work_table.html" class="footer_link">تغییر برنامه</a>
+	<img src="assets/images/icons8-menu.svg" alt="menu button" class="menu_btn">
+	<div class="navbar_options">
+		<section class="buttons_box">
+			<div class="navbar_icon"></div>
+			<div class="navbar_homepage_btn">
+				<a href="#" class="navbar_homepage_btn">صفحه اصلی</a>
 			</div>
-		</div>
-		</div>
-		<div class="navbar_developers_info_container">
-			<a href="#about" class="navbar_developers_info_btn">درباره ما</a></div>
-
-
-
-	</section>
-	<section class="user_info_box">
-		<div class="guide_btn">راهنما</div>
-		<div class="sign_in_btn">ورود</div>
-	</section>
+			<div class="navbar_options_btn">
+				امکانات<div class="drop_down">
+				<div class="column footer_options_column">
+					<a href="work_table.html" class="footer_link">میزکار</a>
+					<a href="work_table.html" class="footer_link">افزودن برنامه</a>
+					<a href="work_table.html" class="footer_link">برنامه امروز</a>
+					<a href="work_table.html" class="footer_link">تغییر برنامه</a>
+				</div>
+			</div>
+			</div>
+			<a href="work_table.html" class="small_screen_option_btn">میزکار</a>
+			<a href="work_table.html" class="small_screen_option_btn">افزودن برنامه</a>
+			<a href="work_table.html" class="small_screen_option_btn">برنامه امروز</a>
+			<a href="work_table.html" class="small_screen_option_btn">تغییر برنامه</a>
+			<div class="navbar_developers_info_container">
+				<a href="#about" class="navbar_developers_info_btn">درباره ما</a>
+			</div>
+		</section>
+		<section class="user_info_box">
+			<div class="guide_btn">راهنما</div>
+			<div class="sign_in_btn">ورود</div>
+		</section>
+	</div>
 </nav>
 <header class="header">
 	<section class="header_title_container">
@@ -57,10 +64,11 @@
 		<p class="header_description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
 	</section>
 	<section class="header_image_container">
-<img class="header_image" alt="header image" src="assets/images/Time%20Management%20Illustration.svg">
+		<img class="header_image" alt="header image" src="assets/images/Time%20Management%20Illustration.svg">
 	</section>
 </header>
 <main class="main">
+	<div class="popout_box"><!-- This element will fade in along with other elements so It will prevent user from clicking outside the opened element. --></div>
 	<section class="shortcuts_btn_container">
 		<div class="shortcut_btn my_schedule_btn animate__animated animate__zoomIn wow"><a href="work_table.html">برنامه های من</a></div>
 		<div class="shortcut_btn my_worktable_btn animate__animated animate__zoomIn wow"><a href="work_table.html">میز کار من</a></div>
@@ -137,7 +145,7 @@
 							<p class="developer_name animate__animated wow animate__pulse">مهراد نیکخواه</p>
 							<p class="developer_grade">پایه نهم</p>
 							<p class="developer_school">دبیرستان شهید بهشتی</p>
-							<p class="developer_skills">توسعه دهنده فرانت اند</p>
+							<p class="developer_skills">توسعه دهنده فرانت اند _ رابط کاربری</p>
 						</div>
 					</div>
 				</div>

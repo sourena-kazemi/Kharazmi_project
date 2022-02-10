@@ -11,6 +11,14 @@ $(document).ready(function(){
 	$(".second_dropdown_icon").on( "click", function(){
 		$(".second_dropdown").slideToggle();
 	});
+	$(".menu_btn").on("click",function(){
+		$(".navbar_options,.popout_box").fadeIn();
+	});
+	$(".popout_box").on("click", function(){
+		if(window.innerWidth <= 768){
+			$(".navbar_options,.popout_box").fadeOut();
+		}
+	});
 });
 let shouldFirstIconRotate=true;
 let shouldSecondIconRotate=true;

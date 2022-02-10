@@ -44,7 +44,7 @@ $(document).ready(function(){ //jquery
 	renderSchoolNamesList(userData.schools);
 	renderSchoolScheduleList(userData.schools);
 	renderWeekExams();
-	$(".schedule_add_button,.nav_adding_schedule_btn,.footer_adding_schedule_btn,.schedule_adding_box").on("click", function(){
+	$(".schedule_add_button,.nav_adding_schedule_btn,.footer_adding_schedule_btn,.schedule_adding_box,.footer_changing_schedule_btn,.nav_changing_schedule_btn").on("click", function(){
 		isScheduleAddingBoxShown=true;
 		$(".schedule_adding_box").fadeIn();
 		$(".popout_box").fadeIn();
@@ -226,9 +226,9 @@ function renderScheduleItems(dayIndex){
 	dayLessonsList.innerHTML="";
 	userData.days[dayIndex].lessons.map(lesson => {
 		if(lesson.school === schoolName || lesson.school === "all"){
-			dayLessonsList.innerHTML+= `<div class=\"day_schedule_item\"><p class=\"day_schedule_item_text\">${lesson.lesson} ${lesson.timeStart} _ ${lesson.timeEnd}</p><img class=\"schedule_item_btn add_as_exam_btn\" src="assets/images/icons8-exam-49.png" alt="exam button" onclick=\"addLessonAsExam(this)\"></img><img class=\"schedule_item_btn remove_item_btn\" src="assets/images/icons8-close (1).svg" alt="remove button"></img></div>\n`;
+			dayLessonsList.innerHTML+= `<div class=\"day_schedule_item\"><p class=\"day_schedule_item_text\">${lesson.lesson} ${lesson.timeStart} _ ${lesson.timeEnd}</p><img class=\"schedule_item_btn add_as_exam_btn\" src="assets/images/icons8-exam-49.png" alt="exam button" onclick=\"addLessonAsExam(this)\"></img><img class=\"schedule_item_btn remove_item_btn\" src="assets/images/icons8-close (1).svg" alt="remove button" onclick=\"removeExam(this)\"></img></div>\n`;
 		}
-	})
+	});
 }
 function changeScheduleSelectedDay(input){
 	let dayNameTitle = document.querySelector(".day_name_title");
@@ -250,23 +250,18 @@ function changeScheduleSelectedDay(input){
 	renderScheduleItems(dayIndex);
 }
 function addLessonAsExam(element){
-	let parentElementOfBtn = element.parentElement;
-	let dayName = document.querySelector(".day_name_title").innerHTML;
-	let schoolName = document.querySelector(".schedule_school_name_title").innerHTML;
-	let scheduleDayIndex = persianWeekDays.indexOf(dayName);
-	let info = parentElementOfBtn.firstChild.innerHTML.split(" ");
-	let lessonsList = userData.days[scheduleDayIndex].lessons;
-	let i = 0;
-	while(i < lessonsList.length){
-		if(lessonsList[i].lesson === info[0] && lessonsList[i].timeStart === info[1] && lessonsList[i].timeEnd === info[3]){
-			userData.days[scheduleDayIndex].lessons[i].exam = !userData.days[scheduleDayIndex].lessons[i].exam;
-			renderWeekExams();
-			break;
-		}else{
-			i++;
-		}
-	}
+	let data = findExamIndex(element);
+	userData.days[data[0]].lessons[data[1]].exam = !userData.days[data[0]].lessons[data[1]].exam;
+	renderWeekExams();
 }
+function removeExam(element){
+	let data = findExamIndex(element);
+	userData.days[data[0]].lessons.splice(data[1],1);
+	renderWeekExams();
+	renderScheduleItems(dayIndex);
+	renderTodayLessonsList(userData.days);
+}
+
 function renderWeekExams(){
 	let examsList = document.querySelector(".week_exams_list");
 	let exams = [];
@@ -289,6 +284,22 @@ function renderWeekExams(){
 			examsList.innerHTML += `<p class=\"exam_list_item\">${exam.name} ${exam.schoolName} ${exam.timeStart} _ ${exam.timeEnd} ${exam.day}</p>\n`;
 		}
 	})
+}
+function findExamIndex(input){
+	let parentElementOfBtn = input.parentElement;
+	let dayName = document.querySelector(".day_name_title").innerHTML;
+	let schoolName = document.querySelector(".schedule_school_name_title").innerHTML;
+	let scheduleDayIndex = persianWeekDays.indexOf(dayName);
+	let info = parentElementOfBtn.firstChild.innerHTML.split(" ");
+	let lessonsList = userData.days[scheduleDayIndex].lessons;
+	let i = 0;
+	while(i < lessonsList.length){
+		if(lessonsList[i].lesson === info[0] && lessonsList[i].timeStart === info[1] && lessonsList[i].timeEnd === info[3]){
+			return [scheduleDayIndex,i];
+		}else{
+			i++;
+		}
+	}
 }
 function getTodayIndex(){
 	//this function will return the index of day that you are in,We couldn't just use getDate() method because first day in my country is Saturday not Sunday!
