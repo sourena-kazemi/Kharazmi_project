@@ -40,6 +40,7 @@ let isScheduleAddingBoxShown = false;
 let persianWeekDays = ["شنبه","یکشنبه","دوشنبه","سه شنبه","چهارشنبه","پنج شنبه","جمعه"];//days of week in persian.
 
 $(document).ready(function(){ //jquery
+	renderAboutTodayBox();
 	renderTodayLessonsList(userData.days);
 	renderSchoolNamesList(userData.schools);
 	renderSchoolScheduleList(userData.schools);
@@ -300,6 +301,26 @@ function findExamIndex(input){
 			i++;
 		}
 	}
+}
+function renderAboutTodayBox(){
+	let today = new Date();
+	let dateInShamsiCalendar = new Intl.DateTimeFormat('fa-IR-u-nu-latn').format(today).split("/");
+	let shamsiDay = dateInShamsiCalendar[2];
+	let shamsiMonth = dateInShamsiCalendar[1];
+	let resultBox = document.querySelector(".about_today_description");
+	$.get(`https://farsicalendar.com/api/sh/${shamsiDay}/${shamsiMonth}`,function(data,status){
+		if(status === "success" && data.type === "success"){
+			if(data.values.length !==0){
+				data.values.map(occasion => {
+					resultBox.innerHTML=occasion.occasion;
+				})
+			}else{
+				resultBox.innerHTML= "هیچ مناسبی در تقویم شمسی پیدا نشد.";
+			}
+		}else{
+			resultBox.innerHTML= "خطا در دریافت اطلاعات ! لطفا از اتصال اینترنت خود مطمئن شوید.";
+		}
+	});
 }
 function getTodayIndex(){
 	//this function will return the index of day that you are in,We couldn't just use getDate() method because first day in my country is Saturday not Sunday!

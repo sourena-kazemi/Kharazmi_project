@@ -152,6 +152,9 @@ body{
 	margin:2rem;
 	font-size:1.2rem;
 }
+.about_today_box>*{
+	margin-bottom:2rem;
+}
 .schedule_adding_box{
 	border-radius: 15px;
 	border: #555555 1px solid;
