@@ -40,6 +40,7 @@ let isScheduleAddingBoxShown = false;
 let persianWeekDays = ["شنبه","یکشنبه","دوشنبه","سه شنبه","چهارشنبه","پنج شنبه","جمعه"];//days of week in persian.
 
 $(document).ready(function(){ //jquery
+	loadData();
 	renderAboutTodayBox();
 	renderTodayLessonsList(userData.days);
 	renderSchoolNamesList(userData.schools);
@@ -51,7 +52,7 @@ $(document).ready(function(){ //jquery
 		$(".popout_box").fadeIn();
 	});
 	$(".popout_box").on("click", function(){
-		$(".schedule_adding_box,.day_lessons_adding_box,.schools_dropdown,.week_schedule,.popout_box").fadeOut();
+		$(".schedule_adding_box,.day_lessons_adding_box,.schools_dropdown,.week_schedule,.sign_in_box,.popout_box").fadeOut();
 		isScheduleAddingBoxShown=false;
 	});
 	$(".schools_dropdown_btn").on("click", function(){
@@ -138,6 +139,7 @@ function addLesson(name,timeStart,timeEnd){
 	renderTodayLessonsList(userData.days);
 
 	$(".day_lessons_adding_box").fadeOut();//hiding the box
+	saveData()
 }
 function addSchool(){
 	let schoolNameInput = document.querySelector(".school_name_input");
@@ -157,6 +159,7 @@ function addSchool(){
 			addSchoolNameBtn.classList.remove("animate__shakeX");
 		},1000);
 	}
+	saveData()
 }
 function renderSchoolNamesList(namesList){
 	let schoolNamesDropdown = document.querySelector(".schools_dropdown_items");
@@ -181,6 +184,7 @@ function changeSelectedSchool(element){
 	}
 	renderTodayLessonsList(userData.days);
 	renderWeekExams();
+	saveData()
 }
 function renderTodayLessonsList(element){
 	let todayIndex = getTodayIndex();
@@ -198,7 +202,7 @@ function checkLesson(lessonIndex,day){
 	}else{
 		userData.days[day].lessons[lessonIndex].checked="";
 	}
-
+	saveData()
 }
 function renderSchoolScheduleList(list){
 	let schoolsSchedulesList = document.querySelector(".schools_schedules_list");
@@ -254,6 +258,7 @@ function addLessonAsExam(element){
 	let data = findExamIndex(element);
 	userData.days[data[0]].lessons[data[1]].exam = !userData.days[data[0]].lessons[data[1]].exam;
 	renderWeekExams();
+	saveData()
 }
 function removeExam(element){
 	let data = findExamIndex(element);
@@ -261,8 +266,8 @@ function removeExam(element){
 	renderWeekExams();
 	renderScheduleItems(dayIndex);
 	renderTodayLessonsList(userData.days);
+	saveData()
 }
-
 function renderWeekExams(){
 	let examsList = document.querySelector(".week_exams_list");
 	let exams = [];
@@ -332,4 +337,17 @@ function getTodayIndex(){
 		todayIndex+=1;
 	}
 	return todayIndex;
+}
+function loadData(){
+	if(localStorage.userData){
+		userData = JSON.parse(localStorage.userData);
+	}
+}
+function saveData(){
+	if(localStorage.userData){
+		localStorage.userData = JSON.stringify(userData);
+	}else{
+		localStorage.userData = JSON.stringify(userData);
+	}
+	//We are making this like this so in the future we could easily work with data and database.
 }

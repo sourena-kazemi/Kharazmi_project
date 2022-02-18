@@ -9,17 +9,11 @@ html{
 	scroll-behavior: smooth;
 
 }
-body{
-	display:flex;
-	flex-direction: column;
-	align-items: center;
-	overflow-x: hidden;
-}
 nav{
 	background-color: rgb(151, 151, 151);
 	width: 90%;
 	border-radius:15px;
-	margin-top:1rem;
+	margin:1rem auto;
 	padding: .3rem;
 }
 .navbar_options{
@@ -65,22 +59,14 @@ nav .buttons_box div {
 .user_info_box div{
 	margin:auto 10px;
 }
-.user_logo{
-	background-color: #fff;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-.navbar_icon{
-	background-color: #fff;
-	width: 40px;
-	height: 40px;
+.navbar_icon_container{
+	width: 4rem;
 }
 .navbar_developers_info_btn{
 	text-decoration: none;
 	color: #000;
 }
-.navbar_homepage_btn{
+.navbar_homepage_btn,.guide_btn,.sign_in_btn{
 	text-decoration: none;
 	color: #000;
 }
@@ -169,6 +155,7 @@ nav .buttons_box div {
 	display: flex;
 	align-self: center;
 	position: relative;
+	margin: 0 2rem;
 }
 .about_container_head{
 	display: flex;
@@ -189,6 +176,13 @@ nav .buttons_box div {
 }
 .second_separator_line{
 	left:2%;
+}
+.shorter_separator_line{
+	width:20%;
+}
+.guide_description{
+	padding:0 1rem;
+	margin:.5rem 0;
 }
 .about_project_dropdown_container{
 	display:flex;
@@ -212,7 +206,6 @@ nav .buttons_box div {
 }
 .about_dropdown{
 	margin-top: 1rem;
-	white-space: pre-wrap; /* css-3 */
 	white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
 	white-space: -pre-wrap; /* Opera 4-6 */
 	white-space: -o-pre-wrap; /* Opera 7 */
@@ -245,6 +238,25 @@ nav .buttons_box div {
 }
 .developer_info_box p{
 	margin-top: .5rem;
+}
+.sign_in_box{
+	display:none;
+	background-color: #e8e8e8;
+	border-radius:15px;
+	transition: all .3s;
+	border: #555555 1px solid;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	padding:2rem;
+	z-index:2;
+}
+.sign_in_box_info_box{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	gap:.5rem;
 }
 .footer{
 	margin-top: 2rem;

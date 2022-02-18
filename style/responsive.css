@@ -103,6 +103,9 @@
 	.about_part_separator_line{
 		width: 30%;
 	}
+	.shorter_separator_line{
+		width:13%;
+	}
 	.developer_image{
 		width:8rem;
 		height:8rem;
@@ -129,5 +132,7 @@
 		flex-direction: column;
 		gap: 0.5rem;
 	}
-
+	.shorter_separator_line{
+		width:10%;
+	}
 }

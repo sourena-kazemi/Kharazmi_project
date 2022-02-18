@@ -16,8 +16,13 @@ $(document).ready(function(){
 	});
 	$(".popout_box").on("click", function(){
 		if(window.innerWidth <= 768){
-			$(".navbar_options,.popout_box").fadeOut();
+			$(".navbar_options,.popout_box,.sign_in_box").fadeOut();
+		}else{
+			$(".popout_box,.sign_in_box").fadeOut();
 		}
+	});
+	$(".sign_in_btn").on("click", function(){
+		$(".sign_in_box,.popout_box").fadeIn();
 	});
 });
 let shouldFirstIconRotate=true;
