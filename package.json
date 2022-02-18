@@ -1,0 +1,23 @@
+{
+  "name": "Kharazmi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourena-kazemi/Kharzmi_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sourena-kazemi/Kharzmi_project/issues"
+  },
+  "homepage": "https://sourena-kazemi.github.io/Kharzmi_project",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}

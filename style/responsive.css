@@ -1,0 +1,138 @@
+@media (max-width:1000px){
+	.header{
+		flex-direction:column-reverse;
+		margin:20px;
+	}
+	.header_image{
+		width: 30rem;
+	}
+	.header_title{
+		font-size: 3rem;
+	}
+	.header_description{
+		font-size:1rem;
+	}
+}
+@media (max-width:768px){
+	/*Tablet size*/
+	.menu_btn{
+		display:block;
+		margin-right: 1rem;
+	}
+	.navbar_options{
+		position:fixed;
+		flex-direction:column;
+		justify-content:center;
+		background-color: #e8e8e8;
+		border: #555555 1px solid;
+		height:100%;
+		top:0;
+		right:0;
+		z-index:2;
+		padding:3rem;
+		display:none;
+	}
+	.navbar_options_btn{
+		display:none;
+	}
+	.user_info_box,.buttons_box{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		gap:1.5rem;
+	}
+	.small_screen_option_btn{
+		display:block;
+
+	}
+
+	.developer_image{
+		width: 10rem;
+		height:10rem;
+	}
+	.week_days_container{
+		flex-direction:column;
+		text-align:center;
+	}
+	.add_lesson_box{
+		align-items: center;
+		flex-direction: column;
+	}
+	.school_planning_Columns{
+		flex-direction:column;
+		gap:1rem;
+	}
+	.schedule{
+		padding:1.5rem;
+	}
+	.schedule_add_button{
+		width:fit-content;
+		padding:0 2rem;
+	}
+}
+@media(max-width:550px){
+	.shortcuts_btn_container{
+		flex-direction:column;
+		align-items:center;
+		gap:2rem;
+	}
+	.shortcut_btn{
+		padding:8px 24px;
+	}
+	.shortcut_btn > *{
+		font-size:1rem;
+	}
+	.description_line{
+		flex-direction:column-reverse;
+		gap:1rem;
+		align-items:center;
+	}
+	.developers_info_container{
+		flex-direction:column;
+		gap:1rem;
+	}
+	.header_image{
+		width: 20rem;
+	}
+	.header_title{
+		font-size: 2rem;
+	}
+	.about_title{
+		font-size:1.3rem;
+	}
+	.about_part_separator_line{
+		width: 30%;
+	}
+	.shorter_separator_line{
+		width:13%;
+	}
+	.developer_image{
+		width:8rem;
+		height:8rem;
+	}
+	.schedule_adding_box{
+		padding:1.5rem;
+	}
+}
+@media (max-width :350px){
+	.header_title{
+		font-size: 1.5rem;
+	}
+	.description_title{
+		font-size: 1.5rem;
+	}
+	.footer{
+		flex-direction:column;
+	}
+	.header_image{
+		width: 16rem;
+	}
+	.add_school_container{
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.shorter_separator_line{
+		width:10%;
+	}
+}

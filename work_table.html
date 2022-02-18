@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/site_icon.svg">
+    <meta charset="utf-8">
+    <meta name="description" content="دبیر همراه،سایت برنامه ریزی و مدیریت زمان مخصوص معلمان و دبیران">
+    <meta name="keywords" content="برنامه ریزی,مدیریت,زمان بندی">
+    <meta name='subject' content='Time management'>
+    <meta property="og:title" content="دبیر همراه">
+    <meta property="og:description" content="وبسایت تخصصی برنامه ریزی برای معلمان">
+    <meta property="og:site_name" content="Dabir Hamrah _ دبیر همراه">
+    <meta property="og:image" content="assets/images/site_icon.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>دبیر همراه _ میزکار</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style/worktable_page_styles.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="assets/images/icons8-menu.svg" alt="menu button" class="menu_btn">
+        <div class="navbar_options">
+            <section class="buttons_box">
+                <div class="navbar_icon_container">
+                    <img src="assets/images/site_icon.svg" alt="Site icon" class="navbar_icon">
+                </div>
+                <div class="navbar_homepage_btn">
+                    <a href="index.html" class="navbar_homepage_btn">صفحه اصلی</a>
+                </div>
+                <div class="navbar_options_btn">
+                    امکانات<div class="drop_down">
+                    <div class="column footer_options_column">
+                        <a href="#" class="footer_link">میزکار</a>
+                        <a href="#" class="footer_link nav_adding_schedule_btn">افزودن برنامه</a>
+                        <a href="#" class="footer_link">برنامه امروز</a>
+                        <a href="#" class="footer_link nav_changing_schedule_btn">تغییر برنامه</a>
+                    </div>
+                </div>
+                </div>
+                <a href="work_table.html" class="small_screen_option_btn">میزکار</a>
+                <a href="work_table.html" class="small_screen_option_btn nav_adding_schedule_btn">افزودن برنامه</a>
+                <a href="work_table.html" class="small_screen_option_btn">برنامه امروز</a>
+                <a href="work_table.html" class="small_screen_option_btn nav_changing_schedule_btn">تغییر برنامه</a>
+                <div class="navbar_developers_info_btn">درباره ما</div>
+
+            </section>
+                <section class="user_info_box">
+                    <div class="guide_btn">
+                        <a href="./guide_page.html" class="guide_btn">راهنما</a>
+                    </div>
+                    <div class="sign_in_btn">
+                        <a href="#" class="sign_in_btn">ورود</a>
+                    </div>
+                </section>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="schools_dropdown_box">
+            <h3 class="schools_dropdown_title">تمام مدارس</h3>
+            <button class="schools_dropdown_btn">انتخاب مدرسه / دانشگاه</button>
+            <div class="schools_dropdown">
+                <div class="schools_dropdown_items">
+                    <p class="schools_dropdown_item all_schools_btn" onclick="changeSelectedSchool(this)">تمام مدارس</p>
+                </div>
+                <div class="add_school_container">
+                    <input type="text" class="school_name_input" placeholder="نام مدرسه / دانشگاه">
+                    <button class="add_school_name_btn animate__animated" onclick="addSchool()">افزودن</button>
+                </div>
+            </div>
+        </div>
+        <div class="school_planning_Columns">
+            <div class="exam_schedule_box schedule">
+                <h3 class="schedule_title">امتحانات هفته</h3>
+                <div class="week_exams_list"></div>
+                <button class="schedule_add_button exam_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
+            </div>
+            <div class="present_week_schedule_box schedule">
+                <h3 class="schedule_title">برنامه مدارس</h3>
+                    <div class="schools_schedules_list"></div>
+                <button class="schedule_add_button present_week_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
+            </div>
+            <div class="today_schedule_box schedule">
+                <h3 class="schedule_title">برنامه امروز</h3>
+                <div class="today_lessons_list"></div>
+                <button class="schedule_add_button today_schedule_box_btn animate__animated animate__zoomIn wow">افزودن</button>
+            </div>
+        </div>
+        <div class="schedule_adding_box">
+            <div class="schools_dropdown_box schedule_adding_schools_dropdown">
+                <h3 class="adding_box_dropdown_title">تمام مدارس</h3>
+                <button class="schools_dropdown_btn">انتخاب مدرسه / دانشگاه</button>
+                <div class="schools_dropdown">
+
+                </div>
+            </div>
+            <div class="week_days_container">
+                <div class="day_container saturday_box">
+                    <h4 class="day_name" id="saturday" onclick="openAddLessonsBox(this)">شنبه</h4>
+                </div>
+                <div class="day_container sunday_box">
+                    <h4 class="day_name" id="sunday" onclick="openAddLessonsBox(this)">یکشنبه</h4>
+                </div>
+                <div class="day_container monday_box">
+                    <h4 class="day_name" id="monday" onclick="openAddLessonsBox(this)">دوشنبه</h4>
+                </div>
+                <div class="day_container tuesday_box">
+                    <h4 class="day_name" id="tuesday" onclick="openAddLessonsBox(this)">سه شنبه</h4>
+                </div>
+                <div class="day_container wednesday_box">
+                    <h4 class="day_name" id="wednesday" onclick="openAddLessonsBox(this)">چهارشنبه</h4>
+                </div>
+                <div class="day_container thursday_box">
+                    <h4 class="day_name" id="thursday" onclick="openAddLessonsBox(this)">پنج شنبه</h4>
+                </div>
+                <div class="day_container friday_box">
+                    <h4 class="day_name" id="friday" onclick="openAddLessonsBox(this)">جمعه</h4>
+                </div>
+            </div>
+        </div>
+        <div class="day_lessons_adding_box">
+            <h4 class="day_name day_lessons_box_title">نام روز</h4>
+            <h5 class="day_lessons_box_description">در وارد کردن زمان ، حتما زمان را کامل وارد کرده و صبح یا بعد از ظهر بودن آن (AM و PM)را مشخص فرمایید.</h5>
+            <div class="add_lesson_box">
+                <label for="lesson_name_input">نام درس / فعالیت
+                    <input type="text" class="lesson_name_input" placeholder="نام درس یا فعالیت" id="lesson_name_input" required>
+                </label>
+
+                <label for="lesson_time_start_input">زمان شروع
+                    <input type="time" class="lesson_time_start_input" id="lesson_time_start_input" required>
+                </label>
+
+                <label for="lesson_time_end_input">زمان پایان
+                    <input type="time" class="lesson_time_end_input" id="lesson_time_end_input" required>
+                </label>
+                <button class="add_lesson_btn animate__animated" onclick="getLessonInfo()">افزودن</button>
+            </div>
+        </div>
+        <div class="popout_box"><!-- This element will fade in along with other elements so It will prevent user from clicking outside the opened element. --></div>
+        <div class="about_today_box">
+            <h3 class="about_today_title">
+                درباره امروز
+            </h3>
+            <h5 class="about_today_title">
+                آشنایی با مناسبت ها بهانه خوبی برای مطالعه تاریخ و سرگذشت افراد و ملل مختلف است پس سعی نمودیم تا مناسبت های هر روز تقویم شمسی را در اینجا بیاوریم.
+            </h5>
+            <p class="about_today_description"></p>
+        </div>
+        <div class="week_schedule">
+            <div class="week_schedule_container">
+                <p class="schedule_school_name_title"></p>
+                <div class="choose_day_box">
+                    <img src="assets/images/icons8-double-left-50.png" alt="previous day" class="previous_day_btn" onclick="changeScheduleSelectedDay('previous')">
+                    <p class="day_name_title"></p>
+                    <img src="assets/images/icons8-double-left-50.png" alt="next day" class="next_day_btn" onclick="changeScheduleSelectedDay('next')">
+                </div>
+                <div class="day_lessons_box"></div>
+            </div>
+        </div>
+
+        <div class="sign_in_box">
+            <div class="sign_in_box_info_box">
+                <img class="sing_in_box_icon" src="assets/images/icons8-happy-cloud-48.png" alt="happy icon">
+                <h3 class="sign_in_box_title">نیازی به ثبت نام نیست</h3>
+                <p class="sign_in_box_description">در این سایت هیچ نیازی به ثبت نام ندارید.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="column footer_about_column">
+            <a href="index.html#about" class="footer_link">درباره ما</a>
+            <a href="index.html#about_developer_container" class="footer_link">درباره طراحان</a>
+        </div>
+        <div class="column footer_options_column">
+            <a href="#" class="footer_link">میزکار</a>
+            <a href="#" class="footer_link footer_adding_schedule_btn">افزودن برنامه</a>
+            <a href="#" class="footer_link">برنامه امروز</a>
+            <a href="#" class="footer_link footer_changing_schedule_btn">تغییر برنامه</a>
+        </div>
+        <div class="column footer_links_column">
+            <a href="index.html" class="footer_link">صفحه اصلی</a>
+            <a href="guide_page.html" class="footer_link">راهنما</a>
+            <a href="index.html" class="footer_link">ورود</a>
+        </div>
+
+
+    </footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/wow.js"></script>
+<script>
+	new WOW().init();
+</script>
+<script src="./js/main.js"></script>
+<script src="./js/worktable.js"></script>
+</html>
